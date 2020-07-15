@@ -1,13 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-function App() {
+const App = () => {
+
+  const [count, setCount] = useState(0);
+  const [isOn, SetIsOn] = useState(false);
 
   const incCounter = (state) => {
-    state({
-      counter: state.counter + 1
-    });
+    setCount(count + 1);
+    console.log(count);
+  }
+
+  const styless = {
+    backgroundColor: "black",
+    height: "50px",
+    width: "50px"
   }
 
   return (
@@ -15,16 +23,10 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          <button onClick={incCounter}>I am clicked {incCounter}</button>
+          <button onClick={incCounter}>I am clicked {count}</button>
+  <span style={ styless}>Hi hello</span>
+  <div></div>
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-          </a>
       </header>
     </div>
   );
