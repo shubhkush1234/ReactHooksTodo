@@ -12,4 +12,25 @@ Whose values are to be controlled by what we have in state.
 
 2. <div style={{ textAlign: "center" }}>... </div>
 
-3. 
+3. How to use context API?
+
+Index.js
+
+```
+export const userContext = React.createContext();
+
+const username = "Shubham";
+
+ReactDOM.render(<userContext.Provider value={username}>
+                    <App/>
+                </userContext.Provider>, document.getElementById("root"));
+```
+
+App.js
+
+```
+<userContext.Consumer>
+        {(value) => <div>Hello {value}</div>}
+      </userContext.Consumer>
+
+```
