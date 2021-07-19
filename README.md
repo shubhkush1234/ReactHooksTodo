@@ -34,3 +34,33 @@ App.js
       </userContext.Consumer>
 
 ```
+
+4. useContext() hook:
+
+provider component: 
+
+```
+export const userContext = React.createContext();
+
+const username = "Shubham";
+
+ReactDOM.render(<userContext.Provider value={username}>
+                    <App/>
+                </userContext.Provider>, document.getElementById("root"));
+```
+
+consumer component:
+
+```
+
+const App = () => {
+  // using useContext() hook
+  const value = useContext(userContext); //passing ApplicationContext to useContext() hook
+
+  return (
+    <div className="App">
+      Hello {value}
+    </div>
+
+```
+
