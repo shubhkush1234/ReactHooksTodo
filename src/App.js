@@ -6,12 +6,18 @@ const initialState = {
   count: 0
 }
 
-function reducer(state = initialState, action){
+function reducer(state, action){
   switch(action.type){
     case "increment":
       return {
         count: state.count + 1
       }
+      case "decrement":
+      return {
+        count: state.count - 1
+      }
+      case "reset":
+        return  initialState
     default:
       return state
   }
@@ -27,10 +33,13 @@ const App = () => {
   return (
     <div className="App">
       <div>Hello {value}</div>
-      {/* <userContext.Consumer>
-        {(value) => <div>Hello {value}</div>}
-      </userContext.Consumer> */}
-      <button style={{backgroundColor:'lightGreen'}} onClick={() => dispatch({type: "increment"})}>Increment count: {state.count}</button>
+      <h3>Count is: {state.count}</h3>
+
+      <button style={{backgroundColor:'lightGreen'}} onClick={() => dispatch({type: "increment"})}>Increment Btn: </button><br></br><br></br>
+      <button style={{backgroundColor:'red'}} onClick={() => dispatch({type: "decrement"})}>Decrement Btn</button>
+      <button style={{backgroundColor:'yellow'}} onClick={() => dispatch({type: "reset"})}>reset Btn</button>
+
+
     </div>
   );
 }
