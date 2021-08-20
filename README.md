@@ -99,3 +99,7 @@ const App = () => {
     </div>
 
 ```
+
+# ref #
+
+refs gives us a way to access the react elements created in the render method.

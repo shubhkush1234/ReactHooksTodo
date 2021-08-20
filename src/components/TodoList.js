@@ -17,7 +17,7 @@ const TodoList = () => {
                         <span className={`flex-1 ml-12 curser-pointer ${todo.complete && "line-through text-gray-900"}`}
                             onDoubleClick={() => dispatch({type:"TOGGLE_TODO", payload: todo})}> {todo.text}</span>
 
-                        <button>Edit</button>
+                        <button onClick={() => dispatch({type: "SET_CURRENT_TODO", payload: todo})}>Edit</button>
                         <button onClick={() => dispatch({type: "REMOVE_TODO", payload: todo})}>Delete</button>
                     </li>)}
             </ul>
