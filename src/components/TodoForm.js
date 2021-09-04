@@ -1,5 +1,6 @@
 import React, { useState, useContext, useEffect } from 'react';
 import TodosContext from '../context';
+import axios from 'axios';
 
 export default function TodoForm(){
     const [todo, setTodo]= useState("");
@@ -11,14 +12,22 @@ export default function TodoForm(){
         }
     }, [currentTodo.id]);
     
-    const handleSubmit = event => {
+    const handleSubmit = async event => {
         event.preventDefault();
         alert("submitted");
         if(currentTodo.text){
-            dispatch({type: "UPDATE_TODO", payload: todo})
+            const response = await axios.patch(`http://localhost:3000/todos/${currentTodo.id}`, {
+                text: todo 
+           });
+            dispatch({type: "UPDATE_TODO", payload: response.data})
         }
         else{
-            dispatch({ type: "ADD_TODO", payload: todo });
+            const response = await axios.post("http://localhost:3000/todos", {
+                id: Math.floor(Math.random() * 100) + 1,
+                text: todo,
+                complete: false
+            })
+            dispatch({ type: "ADD_TODO", payload: response.data });
         }
         setTodo("")
         // alert(todo)
