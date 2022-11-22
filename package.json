@@ -7,7 +7,7 @@
     "generate-unique-id": "^2.0.1",
     "react": "^16.7.0-alpha.2",
     "react-dom": "^16.7.0-alpha.2",
-    "react-scripts": "2.1.1",
+    "react-scripts": "5.0.1",
     "uuid": "^8.3.2",
     "uuidv4": "^6.2.11"
   },
